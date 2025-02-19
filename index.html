@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You, Anisha ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            position: relative;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .heart {
+            font-size: 5rem;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #ff4d6d;
+            color: white;
+        }
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+        }
+        .heart-icon {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            color: #ff4d6d;
+            animation: floatUp 5s infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+        .message {
+            display: none;
+            font-size: 2rem;
+            margin-top: 20px;
+            color: yellow;
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>I Love You, Anisha! ❤️</h1>
+        <p>You are the most special person in my life. Will you be mine forever?</p>
+        <div class="heart">💖</div>
+        <button onclick="showLove()">Yes, I Love You Too!</button>
+        <div class="message" id="message">You just made my life complete! 💞</div>
+    </div>
+    
+    <div class="floating-hearts"></div>
+    
+    <script>
+        function showLove() {
+            alert('You just made my world brighter! ❤️');
+            document.getElementById('message').style.display = 'block';
+        }
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-icon');
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.querySelector('.floating-hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
